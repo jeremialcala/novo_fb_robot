@@ -43,18 +43,18 @@ def webhook():
                     log(j)
 
                     if message_text.lower().find("regist") is not -1:
-                        #msg = "Hola " + j['first_name'] + ", ¿deseas registrarte en TDM?"
-                        msg = "Hola, ¿deseas registrarte en TDM?"
+                        msg = "Hola " + j['first_name'] + ", ¿deseas registrarte en TDM?"
+                        #msg = "Hola, ¿deseas registrarte en TDM?"
                         send_message(sender_id, msg)
 
                     elif message_text.lower().find("hola") is not -1:
-                        #msg = "Hola " + j['first_name'] + ", en que te puedo ayudar"
-                        msg = "Hola, en que te puedo ayudar"
+                        msg = "Hola " + j['first_name'] + ", en que te puedo ayudar"
+                        #msg = "Hola, en que te puedo ayudar"
                         send_message(sender_id, msg)
 
                     elif message_text.lower().find("saldo") is not -1:
-                        #msg = j['first_name'] + " Tu saldo es: 0.00"
-                        msg = " Tu saldo es: 0.00 "
+                        msg = j['first_name'] + " Tu saldo es: 0.00"
+                        #msg = " Tu saldo es: 0.00 "
                         send_message(sender_id, msg)
 
                     else:
