@@ -36,7 +36,7 @@ def webhook():
 
                     sender_id = messaging_event["sender"]["id"]        # the facebook ID
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID
-                    0message_text = messaging_event["message"]["text"]  # the message's text
+                    message_text = messaging_event["message"]["text"]  # the message's text
                     #r = get_user_by_id(sender_id)
                     #log(type(r))
                     #j = json_loads_byteified(r)
