@@ -58,8 +58,10 @@ def webhook():
                         send_message(sender_id, msg)
 
                     else:
-                        send_message(sender_id, "Gracias por tu Comentario " + j['first_name'] +
-                                     ", ¿requieres asistencia? o ¿tienes alguna duda con nuestro servicio?")
+                        #msg = "Gracias por tu Comentario " + j['first_name'] +\
+                        msg = "Gracias por tu Comentario " +\
+                              ", ¿requieres asistencia? o ¿tienes alguna duda con nuestro servicio?"
+                        send_message(sender_id, msg)
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
