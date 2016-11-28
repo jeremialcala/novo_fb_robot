@@ -37,15 +37,19 @@ def webhook():
                     sender_id = messaging_event["sender"]["id"]        # the facebook ID
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID
                     message_text = messaging_event["message"]["text"]  # the message's text
-                    #r = get_user_by_id(sender_id)
-                    #log(type(r))
+                    r = get_user_by_id(sender_id)
+                    log(type(r))
                     #j = json_loads_byteified(r)
                     #log(j)
 
                     if message_text.lower().find("regist") is not -1:
                         #msg = "Hola " + j['first_name'] + ", ¿deseas registrarte en TDM?"
-                        #msg = "Hola, ¿deseas registrarte en TDM? " 
+                        #msg = "Hola, ¿deseas registrarte en TDM? "
                         msg = sender_id
+
+                        #user = get_user_by_id(sender_id)
+                        #log(user)
+
                         send_message(sender_id, msg)
 
                     elif message_text.lower().find("hola") is not -1:
