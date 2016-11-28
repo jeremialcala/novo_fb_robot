@@ -52,12 +52,11 @@ def webhook():
                             msg = "Hola " + r[key] + ", ¿deseas registrarte en TDM?"
                         elif key in s and not (s[key] is None):
                             msg = "Hola " + s[key] + ", ¿deseas registrarte en TDM?"
-                        else:
-                            msg = "Hola, ¿deseas registrarte en TDM? "
 
                         # user = get_user_by_id(sender_id)
                         # log(user)
                         send_message(recipient_id, msg)
+                        send_message(sender_id, msg)
 
                     elif message_text.lower().find("hola") is not -1:
                         # msg = "Hola " + j['first_name'] + ", en que te puedo ayudar"
