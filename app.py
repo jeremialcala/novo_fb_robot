@@ -39,20 +39,19 @@ def webhook():
                     message_text = messaging_event["message"]["text"]  # the message's text
                     log("Sender_id " + sender_id)
                     log("Recipient_id " + recipient_id)
-                    # j = json_loads_by teified(r)
-                    # log(j)
+                    msg = sender_id
+                    s = get_user_by_id(recipient_id)
+                    log(s)
+                    r = get_user_by_id(sender_id)
+                    log(r)
+                    j = json_loads_byteified(r)
+                    log(j)
 
                     if message_text.lower().find("regist") is not -1:
                         # msg = "Hola " + j['first_name'] + ", ¿deseas registrarte en TDM?"
                         # msg = "Hola, ¿deseas registrarte en TDM? "
-                        msg = sender_id
-                        s = get_user_by_id(recipient_id)
-                        log(s)
-                        r = get_user_by_id(sender_id)
-                        log(r)
                         # user = get_user_by_id(sender_id)
                         # log(user)
-
                         send_message(sender_id, msg)
 
                     elif message_text.lower().find("hola") is not -1:
