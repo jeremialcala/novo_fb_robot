@@ -83,7 +83,7 @@ def webhook():
 
 def get_user_by_id(user_id):
 
-    url = "https://graph.facebook.com/USER_ID?fields=first_name&access_token="
+    url = "https://graph.facebook.com/USER_ID?&access_token="
     url = url.replace("USER_ID", user_id) + os.environ["PAGE_ACCESS_TOKEN"]
     log(url)
     r = requests.get(url)
