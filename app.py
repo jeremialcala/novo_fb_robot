@@ -55,7 +55,7 @@ def webhook():
 
                         # user = get_user_by_id(sender_id)
                         # log(user)
-                        send_message(recipient_id, msg)
+                        # send_message(recipient_id, msg)
                         send_message(sender_id, msg)
 
                     elif message_text.lower().find("hola") is not -1:
