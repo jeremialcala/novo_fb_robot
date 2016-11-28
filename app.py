@@ -39,34 +39,34 @@ def webhook():
                     message_text = messaging_event["message"]["text"]  # the message's text
                     log("Sender_id " + sender_id)
                     log("Recipient_id " + recipient_id)
-                    #j = json_loads_by teified(r)
-                    #log(j)
+                    # j = json_loads_by teified(r)
+                    # log(j)
 
                     if message_text.lower().find("regist") is not -1:
-                        #msg = "Hola " + j['first_name'] + ", ¿deseas registrarte en TDM?"
-                        #msg = "Hola, ¿deseas registrarte en TDM? "
+                        # msg = "Hola " + j['first_name'] + ", ¿deseas registrarte en TDM?"
+                        # msg = "Hola, ¿deseas registrarte en TDM? "
                         msg = sender_id
                         s = get_user_by_id(recipient_id)
-                        log(type(s))
+                        log(s)
                         r = get_user_by_id(sender_id)
-                        log(type(r))
-                        #user = get_user_by_id(sender_id)
-                        #log(user)
+                        log(r)
+                        # user = get_user_by_id(sender_id)
+                        # log(user)
 
                         send_message(sender_id, msg)
 
                     elif message_text.lower().find("hola") is not -1:
-                        #msg = "Hola " + j['first_name'] + ", en que te puedo ayudar"
+                        # msg = "Hola " + j['first_name'] + ", en que te puedo ayudar"
                         msg = "Hola, en que te puedo ayudar"
                         send_message(sender_id, msg)
 
                     elif message_text.lower().find("saldo") is not -1:
-                        #msg = j['first_name'] + " Tu saldo es: 0.00"
+                        # msg = j['first_name'] + " Tu saldo es: 0.00"
                         msg = " Tu saldo es: 0.00 "
                         send_message(sender_id, msg)
 
                     else:
-                        #msg = "Gracias por tu Comentario " + j['first_name'] +\
+                        # msg = "Gracias por tu Comentario " + j['first_name'] +\
                         msg = "Gracias por tu Comentario " +\
                               ", ¿requieres asistencia? o ¿tienes alguna duda con nuestro servicio?"
                         send_message(sender_id, msg)
