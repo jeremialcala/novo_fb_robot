@@ -59,13 +59,22 @@ def webhook():
                         send_message(sender_id, msg)
 
                     elif message_text.lower().find("hola") is not -1:
+                        if key in r and not (r[key] is None):
+                            msg = "Hola " + r[key] + ", en que te puedo ayudar"
+                        elif key in s and not (s[key] is None):
+                            msg = "Hola " + s[key] + ", en que te puedo ayudar"
+
                         # msg = "Hola " + j['first_name'] + ", en que te puedo ayudar"
-                        msg = "Hola, en que te puedo ayudar"
+                        # msg = "Hola, en que te puedo ayudar"
                         send_message(sender_id, msg)
 
                     elif message_text.lower().find("saldo") is not -1:
+                        if key in r and not (r[key] is None):
+                            msg = "Hola " + r[key] + ",  Tu saldo es: 0.00"
+                        elif key in s and not (s[key] is None):
+                            msg = "Hola " + s[key] + ",  Tu saldo es: 0.00"
                         # msg = j['first_name'] + " Tu saldo es: 0.00"
-                        msg = " Tu saldo es: 0.00 "
+                        # msg = " Tu saldo es: 0.00 "
                         send_message(sender_id, msg)
 
                     else:
