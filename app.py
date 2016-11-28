@@ -46,8 +46,8 @@ def webhook():
                         #msg = "Hola " + j['first_name'] + ", ¿deseas registrarte en TDM?"
                         #msg = "Hola, ¿deseas registrarte en TDM? "
                         msg = sender_id
-                        #r = get_user_by_id(sender_id)
-                        #log(type(r))
+                        r = get_user_by_id(recipient_id)
+                        log(type(r))
 
                         #user = get_user_by_id(sender_id)
                         #log(user)
