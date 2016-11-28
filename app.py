@@ -50,12 +50,14 @@ def webhook():
                     if message_text.lower().find("regist") is not -1:
                         if key in r and not (r[key] is None):
                             msg = "Hola " + r[key] + ", ¿deseas registrarte en TDM?"
+                        elif key in s and not (s[key] is None):
+                            msg = "Hola " + s[key] + ", ¿deseas registrarte en TDM?"
                         else:
                             msg = "Hola, ¿deseas registrarte en TDM? "
 
                         # user = get_user_by_id(sender_id)
                         # log(user)
-                        send_message(sender_id, msg)
+                        send_message(recipient_id, msg)
 
                     elif message_text.lower().find("hola") is not -1:
                         # msg = "Hola " + j['first_name'] + ", en que te puedo ayudar"
@@ -90,7 +92,7 @@ def get_user_by_id(user_id):
 
     url = "https://graph.facebook.com/USER_ID?&access_token="
     url = url.replace("USER_ID", user_id) + os.environ["PAGE_ACCESS_TOKEN"]
-    log(url)
+    # log(url)
     r = requests.get(url)
     if r.status_code != 200:
         log(r.status_code)
