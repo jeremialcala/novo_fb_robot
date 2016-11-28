@@ -44,7 +44,8 @@ def webhook():
 
                     if message_text.lower().find("regist") is not -1:
                         #msg = "Hola " + j['first_name'] + ", ¿deseas registrarte en TDM?"
-                        msg = "Hola, ¿deseas registrarte en TDM? " + sender_id
+                        #msg = "Hola, ¿deseas registrarte en TDM? " 
+                        msg = sender_id
                         send_message(sender_id, msg)
 
                     elif message_text.lower().find("hola") is not -1:
