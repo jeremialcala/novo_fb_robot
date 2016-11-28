@@ -40,15 +40,15 @@ def webhook():
                     log("Sender_id " + sender_id)
                     log("Recipient_id " + recipient_id)
                     msg = sender_id
-                    s = get_user_by_id(recipient_id)
+                    s = get_user_by_id(sender_id)
                     log(s)
-                    r = get_user_by_id(sender_id)
+                    r = get_user_by_id(recipient_id)
                     log(r)
                     j = json_loads_byteified(r)
                     log(j)
 
                     if message_text.lower().find("regist") is not -1:
-                        # msg = "Hola " + j['first_name'] + ", ¿deseas registrarte en TDM?"
+                        msg = "Hola " + j['first_name'] + ", ¿deseas registrarte en TDM?"
                         # msg = "Hola, ¿deseas registrarte en TDM? "
                         # user = get_user_by_id(sender_id)
                         # log(user)
