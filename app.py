@@ -5,6 +5,7 @@ import json
 import requests
 from flask import Flask, request
 from flask import render_template
+from flask import send_file
 
 app = Flask(__name__)
 
@@ -30,6 +31,10 @@ def termandcond():
 def buttons():
     return render_template('buttons.html')
 
+@app.route('/img/hola', methods = ['GET'])
+def hola():
+    filename = '/templates/images/bot-greet.png'
+    return send_file(filename, mimetype='image/gif')
 
 @app.route('/', methods=['POST'])
 def webhook():
