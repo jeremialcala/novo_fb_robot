@@ -141,12 +141,12 @@ def send_termandc(recipient_id):
                                   {
                                     "title": "Welcome to Peter\'s Hats",
                                     "item_url": "https://damp-brushlands-76403.herokuapp.com/termandcond",
-                                    "image_url": "https://petersfancybrownhats.com/company_image.png",
+                                    "image_url": "https://damp-brushlands-76403.herokuapp.com/company_image.png",
                                     "subtitle": "We\'ve got the right hat for everyone.",
                                     "buttons":[
                                       {
                                         "type": "web_url",
-                                        "url": "https://petersfancybrownhats.com",
+                                        "url": "https://damp-brushlands-76403.herokuapp.com/",
                                         "title": "View Website"
                                       },
                                       {
