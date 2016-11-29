@@ -116,7 +116,10 @@ def webhook():
                     pass
 
                 if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
-                    send_message(sender_id, "Hello Again!")
+                    if message_text.lower().find("acepto") is not -1:
+                        msg = "Gracias " + \
+                              ", para continuar ¿me indicas tu numero DNI?"
+                        send_message(sender_id, msg)
                     pass
 
     return "ok", 200
