@@ -52,7 +52,7 @@ def webhook():
                     sender_id = messaging_event["sender"]["id"]  # the facebook ID
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID
                     message_text = messaging_event["message"]["text"]  # the message's text
-                    message_text = "Regist"  # the message's text
+
                     log("Sender_id " + sender_id)
                     log("Recipient_id " + recipient_id)
                     # msg = sender_id
@@ -64,14 +64,14 @@ def webhook():
                     key = "first_name"
                     if message_text.lower().find("regist") is not -1:
                         if key in r and not (r[key] is None):
-                            msg = "Hola " + r[key] + ", ¿deseas registrarte en TDM?"
+                            msg = "Seguro " + r[key] + ", ¿deseas registrarte en TDM?"
                         elif key in s and not (s[key] is None):
-                            msg = "Hola " + s[key] + ", ¿deseas registrarte en TDM?"
+                            msg = "Seguro " + s[key] + ", ¿deseas registrarte en TDM?"
 
                         # user = get_user_by_id(sender_id)
                         # log(user)
                         # send_message(recipient_id, msg)
-                        send_message(sender_id, msg)
+                        # send_message(sender_id, msg)
                         send_termandc(sender_id)
 
                     elif message_text.lower().find("hola") is not -1:
@@ -145,16 +145,16 @@ def send_termandc(recipient_id):
                             "title": "Tu Dinero Móvil",
                             "item_url": "https://damp-brushlands-76403.herokuapp.com/termandcond",
                             "image_url": "https://petersfancybrownhats.com/company_image.png",
-                            "subtitle": "Para continuar con el proceso de registro \n por favor acepta los terminos y condiciones del servicio",
+                            "subtitle": "Para continuar con el proceso \n por favor acepta los terminos y condiciones del servicio",
                             "buttons": [
                                 {
                                     "type": "web_url",
                                     "url": "https://damp-brushlands-76403.herokuapp.com/termandcond",
-                                    "title": "View Website"
+                                    "title": "Términos y Condiciones"
                                 },
                                 {
                                     "type": "postback",
-                                    "title": "Términos y Condiciones",
+                                    "title": "Acepto",
                                     "payload": "DEVELOPER_DEFINED_PAYLOAD"
                                 }
                             ]
