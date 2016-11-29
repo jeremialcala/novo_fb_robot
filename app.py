@@ -21,11 +21,11 @@ def verify():
     return "Hello world", 200
 
 
-@app.route('/TermAndCond', methods=['GET'])
-def verify():
+#@app.route('/TermAndCond', methods=['GET'])
+#def verify():
     # when the endpoint is registered as a webhook, it must echo back
     # the 'hub.challenge' value it receives in the query arguments
-    return render_template('termandcond.html', form=form)
+#    return render_template('termandcond.html', form=form)
 
 
 @app.route('/', methods=['POST'])
