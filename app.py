@@ -66,7 +66,7 @@ def webhook():
                         # log(user)
                         # send_message(recipient_id, msg)
                         send_message(sender_id, msg)
-                        send_message(sender_id, buttons())
+                        send_termandc(sender_id)
 
 
 
