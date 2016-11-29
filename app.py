@@ -30,9 +30,9 @@ def termandcond():
 def buttons():
     return render_template('buttons.html')
 
+
 @app.route('/', methods=['POST'])
 def webhook():
-
     # endpoint for processing incoming messaging events
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
@@ -44,7 +44,7 @@ def webhook():
 
                 if messaging_event.get("message"):  # someone sent us a message
 
-                    sender_id = messaging_event["sender"]["id"]        # the facebook ID
+                    sender_id = messaging_event["sender"]["id"]  # the facebook ID
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID
                     message_text = messaging_event["message"]["text"]  # the message's text
                     log("Sender_id " + sender_id)
@@ -68,6 +68,9 @@ def webhook():
                         send_message(sender_id, msg)
                         send_message(sender_id, buttons())
 
+
+
+
                     elif message_text.lower().find("hola") is not -1:
                         if key in r and not (r[key] is None):
                             msg = "Hola " + r[key] + ", en que te puedo ayudar"
@@ -89,7 +92,7 @@ def webhook():
 
                     else:
                         # msg = "Gracias por tu Comentario " + j['first_name'] +\
-                        msg = "Gracias por tu Comentario " +\
+                        msg = "Gracias por tu Comentario " + \
                               ", ¿requieres asistencia? o ¿tienes alguna duda con nuestro servicio?"
                         send_message(sender_id, msg)
 
@@ -107,7 +110,6 @@ def webhook():
 
 
 def get_user_by_id(user_id):
-
     url = "https://graph.facebook.com/USER_ID?&access_token="
     url = url.replace("USER_ID", user_id) + os.environ["PAGE_ACCESS_TOKEN"]
     # log(url)
@@ -120,8 +122,39 @@ def get_user_by_id(user_id):
         return r.text
 
 
-def send_message(recipient_id, message_text):
+def send_termandc(recipient_id):
+    params = {
+        "access_token": os.environ["PAGE_ACCESS_TOKEN"]
+    }
+    headers = {
+        "Content-Type": "application/json"
+    }
+    data = json.dumps({
+        "recipient": {
+            "id": recipient_id
+        },
+        "message": {
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "receipt",
+                    "recipient_name": "Stephane Crozatier",
+                    "order_number": "12345678902",
+                    "currency": "USD",
+                    "payment_method": "Visa 2345",
+                    "order_url": "https://damp-brushlands-76403.herokuapp.com/termandcond",
+                    "timestamp": "1428444852"
+                }
+            }
+        }
+    })
+    r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
+    if r.status_code != 200:
+        log(r.status_code)
+        log(r.text)
 
+
+def send_message(recipient_id, message_text):
     log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
     params = {
         "access_token": os.environ["PAGE_ACCESS_TOKEN"]
@@ -155,20 +188,20 @@ def json_loads_byteified(json_text):
     )
 
 
-def _byteify(data, ignore_dicts = False):
+def _byteify(data, ignore_dicts=False):
     # if this is a unicode string, return its string representation
     if isinstance(data, unicode):
         return data.encode('utf-8')
     # if this is a list of values, return list of byteified values
     if isinstance(data, list):
-        return [ _byteify(item, ignore_dicts=True) for item in data ]
+        return [_byteify(item, ignore_dicts=True) for item in data]
     # if this is a dictionary, return dictionary of byteified keys and values
     # but only if we haven't already byteified it
     if isinstance(data, dict) and not ignore_dicts:
         return {
             _byteify(key, ignore_dicts=True): _byteify(value, ignore_dicts=True)
             for key, value in data.iteritems()
-        }
+            }
     # if it's anything else, return it in its original form
     return data
 
