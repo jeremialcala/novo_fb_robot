@@ -23,8 +23,6 @@ def verify():
 
 @app.route('/termandcond', methods=['GET'])
 def termandcond():
-    # when the endpoint is registered as a webhook, it must echo back
-    # the 'hub.challenge' value it receives in the query arguments
     return render_template('termandcond.html')
 
 
