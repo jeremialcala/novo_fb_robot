@@ -46,7 +46,8 @@ def webhook():
 
                     sender_id = messaging_event["sender"]["id"]  # the facebook ID
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID
-                    message_text = messaging_event["message"]["text"]  # the message's text
+                    #message_text = messaging_event["message"]["text"]  # the message's text
+                    message_text = "Regist"  # the message's text
                     log("Sender_id " + sender_id)
                     log("Recipient_id " + recipient_id)
                     # msg = sender_id
