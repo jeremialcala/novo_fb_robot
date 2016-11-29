@@ -139,22 +139,10 @@ def send_termandc(recipient_id):
                             "template_type":"generic",
                             "elements":[
                                   {
-                                    "title": "Welcome to Peter\'s Hats",
+                                    "title": "Tu Dinero Móvil",
                                     "item_url": "https://damp-brushlands-76403.herokuapp.com/termandcond",
                                     "image_url": "https://damp-brushlands-76403.herokuapp.com/company_image.png",
-                                    "subtitle": "We\'ve got the right hat for everyone.",
-                                    "buttons":[
-                                      {
-                                        "type": "web_url",
-                                        "url": "https://damp-brushlands-76403.herokuapp.com/",
-                                        "title": "View Website"
-                                      },
-                                      {
-                                        "type": "postback",
-                                        "title": "Start Chatting",
-                                        "payload": "DEVELOPER_DEFINED_PAYLOAD"
-                                      }
-                                    ]
+                                    "subtitle": "Terminos y Condiciones"
                                   }
                             ]
                         }
