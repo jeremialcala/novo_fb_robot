@@ -52,9 +52,9 @@ def webhook():
                     # msg = sender_id
 
                     s = json_loads_byteified(get_user_by_id(sender_id))
-                    log(s)
+                    # log(s)
                     r = json_loads_byteified(get_user_by_id(recipient_id))
-                    log(r)
+                    # log(r)
                     key = "first_name"
                     if message_text.lower().find("regist") is not -1:
                         if key in r and not (r[key] is None):
@@ -66,10 +66,7 @@ def webhook():
                         # log(user)
                         # send_message(recipient_id, msg)
                         send_message(sender_id, msg)
-                        send_termandc(sender_id)
-
-
-
+                        #send_termandc(sender_id)
 
                     elif message_text.lower().find("hola") is not -1:
                         if key in r and not (r[key] is None):
@@ -132,7 +129,34 @@ def send_termandc(recipient_id):
     data = json.dumps({
         "recipient": {
             "id": recipient_id
-        }, "message": {}
+        }, "message": {
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "elements": [
+                        {
+                            "title": "Welcome to Peter\'s Hats",
+                            "item_url": "https://petersfancybrownhats.com",
+                            "image_url": "https://petersfancybrownhats.com/company_image.png",
+                            "subtitle": "We\'ve got the right hat for everyone.",
+                            "buttons": [
+                                {
+                                    "type": "web_url",
+                                    "url": "https://petersfancybrownhats.com",
+                                    "title": "View Website"
+                                },
+                                {
+                                    "type": "postback",
+                                    "title": "Start Chatting",
+                                    "payload": "DEVELOPER_DEFINED_PAYLOAD"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
     })
     log(data)
     r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
