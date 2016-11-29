@@ -51,8 +51,8 @@ def webhook():
 
                     sender_id = messaging_event["sender"]["id"]  # the facebook ID
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID
-                    # message_text = messaging_event["message"]["text"]  # the message's text
-                    message_text = "regist " # the message's text
+                    message_text = messaging_event["message"]["text"]  # the message's text
+                    # message_text = "regist " # the message's text
                     log("Sender_id " + sender_id)
                     log("Recipient_id " + recipient_id)
                     # msg = sender_id
@@ -96,6 +96,11 @@ def webhook():
                     elif message_text.lower().find("acepto") is not -1:
                         msg = "Gracias " + \
                               ", para continuar ¿me indicas tu numero DNI?"
+                        send_message(sender_id, msg)
+
+                    elif message_text.lower().find("9") is not -1:
+                        msg = "Gracias " + \
+                              ", para continuar ¿me indicas tu numero Celular Movistar?"
                         send_message(sender_id, msg)
 
                     else:
