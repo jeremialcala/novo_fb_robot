@@ -132,22 +132,7 @@ def send_termandc(recipient_id):
     data = json.dumps({
         "recipient": {
             "id": recipient_id
-        }, "message": {
-                "attachment": {
-                    "type": "template",
-                        "payload": {
-                            "template_type":"generic",
-                            "elements":[
-                                  {
-                                    "title": "Tu Dinero Móvil",
-                                    "item_url": "https://damp-brushlands-76403.herokuapp.com/termandcond",
-                                    "image_url": "https://damp-brushlands-76403.herokuapp.com/company_image.png",
-                                    "subtitle": "Terminos y Condiciones"
-                                  }
-                            ]
-                        }
-                    }
-	    },
+        }, "message": {}
     })
     log(data)
     r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
