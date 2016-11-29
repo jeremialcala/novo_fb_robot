@@ -4,7 +4,7 @@ import sys
 import json
 import requests
 from flask import Flask, request
-from collections import defaultdict
+from flask import render_template
 
 app = Flask(__name__)
 
@@ -19,6 +19,13 @@ def verify():
         return request.args["hub.challenge"], 200
 
     return "Hello world", 200
+
+
+@app.route('/TermAndCond', methods=['GET'])
+def verify():
+    # when the endpoint is registered as a webhook, it must echo back
+    # the 'hub.challenge' value it receives in the query arguments
+    return render_template('termandcond.html', form=form)
 
 
 @app.route('/', methods=['POST'])
