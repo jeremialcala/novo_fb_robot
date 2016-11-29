@@ -66,6 +66,7 @@ def webhook():
                         # log(user)
                         # send_message(recipient_id, msg)
                         send_message(sender_id, msg)
+                        send_message(sender_id, buttons())
 
                     elif message_text.lower().find("hola") is not -1:
                         if key in r and not (r[key] is None):
