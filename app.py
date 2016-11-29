@@ -93,6 +93,11 @@ def webhook():
                         # msg = " Tu saldo es: 0.00 "
                         send_message(sender_id, msg)
 
+                    elif message_text.lower().find("acepto") is not -1:
+                        msg = "Gracias " + \
+                              ", para continuar ¿me indicas tu numero DNI?"
+                        send_message(sender_id, msg)
+
                     else:
                         # msg = "Gracias por tu Comentario " + j['first_name'] +\
                         msg = "Gracias por tu Comentario " + \
@@ -143,8 +148,6 @@ def send_termandc(recipient_id):
                     "elements": [
                         {
                             "title": "Tu Dinero Móvil",
-                            "item_url": "https://damp-brushlands-76403.herokuapp.com/termandcond",
-                            "image_url": "https://petersfancybrownhats.com/company_image.png",
                             "subtitle": "Para continuar con el proceso \n por favor acepta los terminos y condiciones del servicio",
                             "buttons": [
                                 {
