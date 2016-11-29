@@ -140,7 +140,7 @@ def send_termandc(recipient_id):
                             "title": "Tu Dinero Móvil",
                             "item_url": "https://damp-brushlands-76403.herokuapp.com/termandcond",
                             "image_url": "https://petersfancybrownhats.com/company_image.png",
-                            "subtitle": "We\'ve got the right hat for everyone.",
+                            "subtitle": "Para continuar con el proceso de registro \n por favor acepta los terminos y condiciones del servicio",
                             "buttons": [
                                 {
                                     "type": "web_url",
