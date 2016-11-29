@@ -26,6 +26,10 @@ def termandcond():
     return render_template('termandcond.html')
 
 
+@app.route('/buttons', methods=['GET'])
+def buttons():
+    return render_template('buttons.html')
+
 @app.route('/', methods=['POST'])
 def webhook():
 
