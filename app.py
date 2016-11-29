@@ -24,7 +24,7 @@ def verify():
 
 @app.route('/termandcond', methods=['GET'])
 def termandcond():
-    return render_template('termandcond.html')
+    return render_template('index.html')
 
 
 @app.route('/buttons', methods=['GET'])
