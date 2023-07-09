@@ -2,7 +2,7 @@ facebook
 Flask==2.2.5
 Jinja2==2.8
 MarkupSafe==0.23
-Werkzeug==0.11.10
+Werkzeug==2.2.3
 click==6.6
 gunicorn==19.6.0
 itsdangerous==0.24
